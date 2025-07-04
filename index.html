@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Emanuel Ratão</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -27,24 +29,25 @@
 <body class="bg-gray-800 text-white">
 
     <div class="relative min-h-screen md:flex">
+        <!-- Overlay para o menu mobile -->
         <div id="mobile-menu-overlay" class="hidden md:hidden fixed inset-0 bg-black/50 z-30"></div>
 
+        <!-- Botão do Menu Mobile (Hambúrguer) -->
         <button id="mobile-menu-button" class="md:hidden fixed top-4 left-4 z-50 p-2 rounded-md bg-blue-900/70 text-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
             </svg>
         </button>
 
+        <!-- Barra Lateral -->
         <aside id="sidebar" class="w-64 bg-blue-900 p-6 flex flex-col shadow-lg fixed inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 z-40">
             <div class="text-center mb-10">
                 <h1 class="font-title text-xl text-cyan-400">EMANUEL RATÃO</h1>
             </div>
 
             <a href="https://www.youtube.com/@Emanuel_rat%C3%A3o" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 mb-10 text-red-500 hover:text-red-400 transition-colors duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-                </svg>
-                <span class="font-nav uppercase text-xl tracking-wider">YOUTUBE</span>
+                <img src="imgs/youtube.png" alt="YouTube" class="h-8 w-auto">
+                <span class="font-nav uppercase text-2xl tracking-wider">YOUTUBE</span>
             </a>
 
             <nav>
@@ -53,19 +56,23 @@
                     <li><a href="#" class="nav-link font-nav uppercase text-xl tracking-wider text-gray-300 hover:text-cyan-400 transition-colors duration-300 block p-2 rounded-lg" data-target="scripts">Scripts</a></li>
                     <li><a href="#" class="nav-link font-nav uppercase text-xl tracking-wider text-gray-300 hover:text-cyan-400 transition-colors duration-300 block p-2 rounded-lg" data-target="executores">Executores</a></li>
                     <li><a href="#" class="nav-link font-nav uppercase text-xl tracking-wider text-gray-300 hover:text-cyan-400 transition-colors duration-300 block p-2 rounded-lg" data-target="flappybird">Flappy Bird</a></li>
+                    <li><a href="#" class="nav-link font-nav uppercase text-xl tracking-wider text-gray-300 hover:text-cyan-400 transition-colors duration-300 block p-2 rounded-lg" data-target="loadstring">Loadstring</a></li>
                 </ul>
             </nav>
             <div class="mt-auto text-center text-xs text-gray-500"><p>Feito com ❤️</p></div>
         </aside>
 
+        <!-- Conteúdo Principal -->
         <main class="flex-1 p-6 md:p-10 overflow-y-auto">
+            <!-- Seção: Sobre mim -->
             <div id="sobre" class="content-section"><div class="bg-gray-700 p-6 md:p-8 rounded-xl shadow-2xl max-w-2xl mx-auto"><h2 class="text-2xl md:text-3xl font-bold mb-4 text-cyan-400">Sobre mim</h2><p class="text-lg md:text-xl text-gray-300">Opa eu sou emanuel ratão, e eu quero te alegrar!</p></div></div>
             
+            <!-- Seção: Scripts -->
             <div id="scripts" class="content-section">
                 <div class="relative mb-6 max-w-lg mx-auto">
                     <input type="text" id="script-search-input" placeholder="Pesquisar scripts..." class="w-full p-3 pl-4 pr-16 rounded-lg bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-white">
                     <button id="script-search-button" class="absolute inset-y-0 right-0 px-4 flex items-center bg-cyan-500 rounded-r-lg hover:bg-cyan-600">
-                        <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" /></svg>
+                        <img src="imgs/lupa.png" alt="Pesquisar" class="h-5 w-5">
                     </button>
                 </div>
                 <div id="scripts-list" class="space-y-4">
@@ -76,11 +83,30 @@
                 </div>
             </div>
 
+            <!-- Seção: Loadstring -->
+            <div id="loadstring" class="content-section">
+                <div class="bg-gray-700 p-6 md:p-8 rounded-xl shadow-2xl max-w-3xl mx-auto">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-cyan-400 text-center">Gerador de Loadstring</h2>
+                    <p class="text-center text-gray-400 mb-6">Coloque o link do seu script</p>
+                    <input type="url" id="url-input" placeholder="URL DO SCRIPT" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-white">
+                    
+                    <div id="loadstring-result" class="hidden mt-6">
+                        <div class="bg-gray-900 p-4 rounded-lg mb-4">
+                            <code id="loadstring-output" class="text-green-400 break-all"></code>
+                        </div>
+                        <button id="copy-loadstring-button" class="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300">
+                            COPIAR
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção: Executores -->
             <div id="executores" class="content-section">
                  <div class="relative mb-6 max-w-lg mx-auto">
                     <input type="text" id="executor-search-input" placeholder="Pesquisar executores..." class="w-full p-3 pl-4 pr-16 rounded-lg bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-white">
                     <button id="executor-search-button" class="absolute inset-y-0 right-0 px-4 flex items-center bg-cyan-500 rounded-r-lg hover:bg-cyan-600">
-                        <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" /></svg>
+                        <img src="imgs/lupa.png" alt="Pesquisar" class="h-5 w-5">
                     </button>
                 </div>
                 <div id="executors-list" class="space-y-4">
@@ -94,12 +120,15 @@
                 </div>
             </div>
             
+            <!-- Seção: Flappy Bird -->
             <div id="flappybird" class="content-section"><div class="bg-gray-700 p-4 md:p-6 rounded-xl shadow-2xl max-w-3xl mx-auto text-center"><h2 class="text-2xl md:text-3xl font-bold mb-4 text-cyan-400 font-title">Flappy Ratão</h2><div class="bg-black rounded-lg overflow-hidden border-4 border-gray-600"><canvas id="flappy-canvas"></canvas></div></div></div>
         </main>
     </div>
 
+    <!-- Modal para Scripts -->
     <div id="script-modal" class="modal-container hidden fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"><div class="bg-gray-800 p-6 md:p-8 rounded-xl shadow-2xl w-full max-w-4xl relative"><button class="close-modal-button absolute top-4 right-4 text-gray-400 hover:text-white transition-colors duration-300"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l4-4m-4 4l4 4" /></svg></button><h2 id="modal-title" class="text-2xl md:text-3xl font-bold mb-2 text-cyan-400 text-center"></h2><p id="modal-desc" class="text-gray-400 mb-6 text-center"></p><div class="bg-gray-900 p-4 rounded-lg mb-4 max-h-60 md:max-h-96 overflow-y-auto"><code id="modal-script-text" class="text-green-400 break-all"></code></div><button id="copy-button" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">COPIAR SCRIPT</button></div></div>
 
+    <!-- Modal para Executores -->
     <div id="executor-modal" class="modal-container hidden fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"><div class="bg-gray-800 p-6 md:p-8 rounded-xl shadow-2xl w-full max-w-4xl relative"><button class="close-modal-button absolute top-4 right-4 text-gray-400 hover:text-white transition-colors duration-300"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l4-4m-4 4l4 4" /></svg></button><h2 id="executor-modal-title" class="text-2xl md:text-3xl font-bold mb-2 text-cyan-400 text-center"></h2><p id="executor-modal-desc" class="text-gray-400 mb-6 text-center"></p><div class="text-center"><p class="text-lg mb-2">aqui o executor:</p><a id="executor-modal-link" href="#" target="_blank" rel="noopener noreferrer" class="text-cyan-400 text-xl hover:underline break-all"></a></div></div></div>
 
     <script>
@@ -122,6 +151,11 @@
             const executorSearchInput = document.getElementById('executor-search-input');
             const executorSearchButton = document.getElementById('executor-search-button');
             const executorItems = document.querySelectorAll('.executor-item');
+
+            const urlInput = document.getElementById('url-input');
+            const loadstringResult = document.getElementById('loadstring-result');
+            const loadstringOutput = document.getElementById('loadstring-output');
+            const copyLoadstringButton = document.getElementById('copy-loadstring-button');
 
             let gameInstance = null;
 
@@ -181,20 +215,47 @@
                 });
             });
 
+            function copyToClipboard(text, button) {
+                const tempTextArea = document.createElement('textarea');
+                tempTextArea.value = text;
+                document.body.appendChild(tempTextArea);
+                tempTextArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempTextArea);
+
+                const originalText = button.innerText;
+                button.innerText = 'COPIADO!';
+                button.disabled = true;
+                setTimeout(() => {
+                    button.innerText = originalText;
+                    button.disabled = false;
+                }, 2000);
+            }
+
             if (copyButton) {
                 copyButton.addEventListener('click', function() {
                     const codeToCopy = scriptModal.querySelector('#modal-script-text').innerText;
-                    navigator.clipboard.writeText(codeToCopy).then(() => {
-                        const originalText = this.innerText;
-                        this.innerText = 'COPIADO!'; this.disabled = true;
-                        this.classList.replace('bg-green-500', 'bg-gray-500');
-                        this.classList.replace('hover:bg-green-600', 'cursor-not-allowed');
-                        setTimeout(() => {
-                            this.innerText = originalText; this.disabled = false;
-                            this.classList.replace('bg-gray-500', 'bg-green-500');
-                            this.classList.replace('cursor-not-allowed', 'hover:bg-green-600');
-                        }, 2000);
-                    });
+                    copyToClipboard(codeToCopy, this);
+                });
+            }
+            
+            if (urlInput) {
+                urlInput.addEventListener('input', () => {
+                    const url = urlInput.value.trim();
+                    if (url) {
+                        const generatedScript = `loadstring(game:HttpGet("${url}"))()`;
+                        loadstringOutput.innerText = generatedScript;
+                        loadstringResult.classList.remove('hidden');
+                    } else {
+                        loadstringResult.classList.add('hidden');
+                    }
+                });
+            }
+
+            if (copyLoadstringButton) {
+                copyLoadstringButton.addEventListener('click', function() {
+                    const codeToCopy = loadstringOutput.innerText;
+                    copyToClipboard(codeToCopy, this);
                 });
             }
 
@@ -269,14 +330,17 @@
                         this.ctx.fillStyle = '#f0db4f'; this.ctx.beginPath(); this.ctx.arc(this.bird.x, this.bird.y, this.bird.radius, 0, Math.PI * 2); this.ctx.fill(); this.ctx.strokeStyle = 'black'; this.ctx.stroke();
 
                         this.ctx.fillStyle = 'white'; this.ctx.strokeStyle = 'black'; this.ctx.lineWidth = 5; this.ctx.font = `bold ${this.canvas.width / 15}px ${this.fontName}`; this.ctx.textAlign = 'center';
-                        this.ctx.strokeText(this.score, this.canvas.width / 2, this.canvas.height / 6);
-                        this.ctx.fillText(this.score, this.canvas.width / 2, this.canvas.height / 6);
+                        this.ctx.strokeText(this.score, this.canvas.width / 2, this.canvas.height / 6); this.ctx.fillText(this.score, this.canvas.width / 2, this.canvas.height / 6);
                         
                         if (this.state === 'start') { this.drawText('CLIQUE OU ESPAÇO', this.canvas.width / 2, this.canvas.height / 2 - 20, this.canvas.width / 25); this.drawText('PARA JOGAR', this.canvas.width / 2, this.canvas.height / 2 + 20, this.canvas.width / 25); }
                         if (this.state === 'gameOver') { this.drawText('GAME OVER', this.canvas.width / 2, this.canvas.height / 2 - 50, this.canvas.width / 18); this.drawText(`SCORE: ${this.score}`, this.canvas.width / 2, this.canvas.height / 2, this.canvas.width / 25); this.drawText(`MELHOR: ${this.highScore}`, this.canvas.width / 2, this.canvas.height / 2 + 40, this.canvas.width / 30); this.drawText('Clique para tentar de novo', this.canvas.width / 2, this.canvas.height / 2 + 80, this.canvas.width / 40); }
                     }
                     drawText(text, x, y, size) { this.ctx.font = `bold ${size}px ${this.fontName}`; this.ctx.strokeText(text, x, y); this.ctx.fillText(text, x, y); }
-                    loop() { this.update(); this.draw(); this.animationFrameId = requestAnimationFrame(() => this.loop()); }
+                    loop() { 
+                        this.update(); 
+                        this.draw(); 
+                        this.animationFrameId = requestAnimationFrame(this.loop.bind(this)); 
+                    }
                     start() { if (!this.animationFrameId) this.loop(); }
                     stop() { if (this.animationFrameId) { cancelAnimationFrame(this.animationFrameId); this.animationFrameId = null; } }
                 }
