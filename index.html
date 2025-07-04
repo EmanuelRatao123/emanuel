@@ -4,79 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Emanuel Ratão</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilo para a fonte do título */
-        .font-title {
-            font-family: 'Press Start 2P', cursive;
-        }
-        /* Estilo para a nova fonte do menu */
-        .font-nav {
-            font-family: 'Anton', sans-serif;
-        }
-        /* Estilo para o corpo do texto */
-        body {
-            font-family: 'Roboto', sans-serif;
-            overflow: hidden; /* Previne scroll na página inteira */
-        }
-        /* Esconder a barra de rolagem */
-        ::-webkit-scrollbar {
-            display: none;
-        }
-        /* Animação de fade-in */
-        .content-section, #script-modal {
-            animation: fadeIn 0.3s ease-in-out;
-        }
-        .content-section {
-            display: none;
-        }
+        .font-title { font-family: 'Press Start 2P', cursive; }
+        .font-nav { font-family: 'Anton', sans-serif; }
+        body { font-family: 'Roboto', sans-serif; overflow: hidden; }
+        ::-webkit-scrollbar { display: none; }
+        .content-section, .modal-container { animation: fadeIn 0.3s ease-in-out; }
+        .content-section { display: none; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .content-section.active {
-            display: block;
-        }
-        /* Transição para o menu lateral */
-        aside {
-            transition: transform 0.3s ease-in-out;
-        }
-        #flappy-canvas {
-            background-color: #70c5ce; /* Cor de céu do Flappy Bird */
-            cursor: pointer;
-            display: block; /* Garante que o canvas não tenha margens extras */
-        }
+        .content-section.active { display: block; }
+        aside { transition: transform 0.3s ease-in-out; }
+        #flappy-canvas { background-color: #70c5ce; cursor: pointer; display: block; }
     </style>
 </head>
 <body class="bg-gray-800 text-white">
 
     <div class="relative min-h-screen md:flex">
-        <!-- Overlay para o menu mobile -->
         <div id="mobile-menu-overlay" class="hidden md:hidden fixed inset-0 bg-black/50 z-30"></div>
 
-        <!-- Botão do Menu Mobile (Hambúrguer) -->
         <button id="mobile-menu-button" class="md:hidden fixed top-4 left-4 z-50 p-2 rounded-md bg-blue-900/70 text-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
             </svg>
         </button>
 
-        <!-- Barra Lateral -->
         <aside id="sidebar" class="w-64 bg-blue-900 p-6 flex flex-col shadow-lg fixed inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 z-40">
             <div class="text-center mb-10">
                 <h1 class="font-title text-xl text-cyan-400">EMANUEL RATÃO</h1>
             </div>
 
-            <a href="https://www.youtube.com/@Emanuel_rat%C3%A3o" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 mb-10 text-lg text-gray-300 hover:text-white transition-colors duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+            <a href="https://www.youtube.com/@Emanuel_rat%C3%A3o" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 mb-10 text-red-500 hover:text-red-400 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
                 </svg>
-                <span>YOUTUBE</span>
+                <span class="font-nav uppercase text-xl tracking-wider">YOUTUBE</span>
             </a>
 
             <nav>
@@ -90,21 +58,49 @@
             <div class="mt-auto text-center text-xs text-gray-500"><p>Feito com ❤️</p></div>
         </aside>
 
-        <!-- Conteúdo Principal -->
-        <main class="flex-1 p-6 md:p-10">
-            <!-- Seção: Sobre mim -->
+        <main class="flex-1 p-6 md:p-10 overflow-y-auto">
             <div id="sobre" class="content-section"><div class="bg-gray-700 p-6 md:p-8 rounded-xl shadow-2xl max-w-2xl mx-auto"><h2 class="text-2xl md:text-3xl font-bold mb-4 text-cyan-400">Sobre mim</h2><p class="text-lg md:text-xl text-gray-300">Opa eu sou emanuel ratão, e eu quero te alegrar!</p></div></div>
-            <!-- Seção: Scripts -->
-            <div id="scripts" class="content-section"><div id="script-card" class="bg-gray-700 p-6 md:p-8 rounded-xl shadow-2xl max-w-3xl mx-auto text-center cursor-pointer hover:bg-gray-600 transition-colors duration-300"><h2 class="text-2xl md:text-3xl font-bold mb-2 text-cyan-400">RATO X BRAINROT</h2><p class="text-gray-400">SCRIPT MT OP ROUBE UM BRAINROT SEM KEY</p></div></div>
-            <!-- Seção: Executores -->
-            <div id="executores" class="content-section"><div class="bg-gray-700 p-6 md:p-8 rounded-xl shadow-2xl max-w-2xl mx-auto"><h2 class="text-2xl md:text-3xl font-bold mb-4 text-cyan-400">Executores</h2><p class="text-xl md:text-2xl text-gray-300">EM BREVE...</p></div></div>
-            <!-- Seção: Flappy Bird -->
+            
+            <div id="scripts" class="content-section">
+                <div class="relative mb-6 max-w-lg mx-auto">
+                    <input type="text" id="script-search-input" placeholder="Pesquisar scripts..." class="w-full p-3 pl-4 pr-16 rounded-lg bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-white">
+                    <button id="script-search-button" class="absolute inset-y-0 right-0 px-4 flex items-center bg-cyan-500 rounded-r-lg hover:bg-cyan-600">
+                        <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" /></svg>
+                    </button>
+                </div>
+                <div id="scripts-list" class="space-y-4">
+                    <div class="script-item bg-gray-700 p-6 rounded-xl shadow-2xl max-w-3xl mx-auto text-center cursor-pointer hover:bg-gray-600 transition-colors duration-300" data-script-code='loadstring(game:HttpGet("https://pastefy.app/m78dfBWZ/raw"))()'>
+                        <h2 class="script-title text-2xl md:text-3xl font-bold mb-2 text-cyan-400">RATO X BRAINROT</h2>
+                        <p class="script-desc text-gray-400">SCRIPT MT OP ROUBE UM BRAINROT SEM KEY</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="executores" class="content-section">
+                 <div class="relative mb-6 max-w-lg mx-auto">
+                    <input type="text" id="executor-search-input" placeholder="Pesquisar executores..." class="w-full p-3 pl-4 pr-16 rounded-lg bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-white">
+                    <button id="executor-search-button" class="absolute inset-y-0 right-0 px-4 flex items-center bg-cyan-500 rounded-r-lg hover:bg-cyan-600">
+                        <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" /></svg>
+                    </button>
+                </div>
+                <div id="executors-list" class="space-y-4">
+                    <div class="executor-item bg-gray-700 p-6 rounded-xl shadow-2xl max-w-3xl mx-auto text-center cursor-pointer hover:bg-gray-600 transition-colors duration-300" 
+                         data-title="DELTA (MOBILE)" 
+                         data-desc="executor mobile muito bom com key" 
+                         data-link="https://delta-executor.com/deltaexploit/">
+                        <h2 class="executor-title text-2xl md:text-3xl font-bold mb-2 text-cyan-400">DELTA (MOBILE)</h2>
+                        <p class="executor-desc text-gray-400">executor mobile muito bom com key</p>
+                    </div>
+                </div>
+            </div>
+            
             <div id="flappybird" class="content-section"><div class="bg-gray-700 p-4 md:p-6 rounded-xl shadow-2xl max-w-3xl mx-auto text-center"><h2 class="text-2xl md:text-3xl font-bold mb-4 text-cyan-400 font-title">Flappy Ratão</h2><div class="bg-black rounded-lg overflow-hidden border-4 border-gray-600"><canvas id="flappy-canvas"></canvas></div></div></div>
         </main>
     </div>
 
-    <!-- Modal do Script em Tela Cheia -->
-    <div id="script-modal" class="hidden fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"><div class="bg-gray-800 p-6 md:p-8 rounded-xl shadow-2xl w-full max-w-4xl relative"><button id="close-script-button" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors duration-300"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l4-4m-4 4l4 4" /></svg></button><h2 class="text-2xl md:text-3xl font-bold mb-2 text-cyan-400 text-center">RATO X BRAINROT</h2><p class="text-gray-400 mb-6 text-center">SCRIPT MT OP ROUBE UM BRAINROT SEM KEY</p><div class="bg-gray-900 p-4 rounded-lg mb-4 max-h-60 md:max-h-96 overflow-y-auto"><code id="script-text" class="text-green-400 break-all">loadstring(game:HttpGet("https://pastefy.app/m78dfBWZ/raw"))()</code></div><button id="copy-button" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">COPIAR SCRIPT</button></div></div>
+    <div id="script-modal" class="modal-container hidden fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"><div class="bg-gray-800 p-6 md:p-8 rounded-xl shadow-2xl w-full max-w-4xl relative"><button class="close-modal-button absolute top-4 right-4 text-gray-400 hover:text-white transition-colors duration-300"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l4-4m-4 4l4 4" /></svg></button><h2 id="modal-title" class="text-2xl md:text-3xl font-bold mb-2 text-cyan-400 text-center"></h2><p id="modal-desc" class="text-gray-400 mb-6 text-center"></p><div class="bg-gray-900 p-4 rounded-lg mb-4 max-h-60 md:max-h-96 overflow-y-auto"><code id="modal-script-text" class="text-green-400 break-all"></code></div><button id="copy-button" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">COPIAR SCRIPT</button></div></div>
+
+    <div id="executor-modal" class="modal-container hidden fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"><div class="bg-gray-800 p-6 md:p-8 rounded-xl shadow-2xl w-full max-w-4xl relative"><button class="close-modal-button absolute top-4 right-4 text-gray-400 hover:text-white transition-colors duration-300"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l4-4m-4 4l4 4" /></svg></button><h2 id="executor-modal-title" class="text-2xl md:text-3xl font-bold mb-2 text-cyan-400 text-center"></h2><p id="executor-modal-desc" class="text-gray-400 mb-6 text-center"></p><div class="text-center"><p class="text-lg mb-2">aqui o executor:</p><a id="executor-modal-link" href="#" target="_blank" rel="noopener noreferrer" class="text-cyan-400 text-xl hover:underline break-all"></a></div></div></div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -113,15 +109,21 @@
             const sidebar = document.getElementById('sidebar');
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-            const scriptCard = document.getElementById('script-card');
+            
             const scriptModal = document.getElementById('script-modal');
-            const closeScriptButton = document.getElementById('close-script-button');
+            const executorModal = document.getElementById('executor-modal');
             const copyButton = document.getElementById('copy-button');
-            const scriptTextElement = document.getElementById('script-text');
-            const scriptText = scriptTextElement ? scriptTextElement.innerText : '';
+            const closeButtons = document.querySelectorAll('.close-modal-button');
+
+            const scriptSearchInput = document.getElementById('script-search-input');
+            const scriptSearchButton = document.getElementById('script-search-button');
+            const scriptItems = document.querySelectorAll('.script-item');
+            
+            const executorSearchInput = document.getElementById('executor-search-input');
+            const executorSearchButton = document.getElementById('executor-search-button');
+            const executorItems = document.querySelectorAll('.executor-item');
 
             let gameInstance = null;
-            let animationFrameId = null;
 
             const closeMobileMenu = () => { sidebar.classList.add('-translate-x-full'); mobileMenuOverlay.classList.add('hidden'); };
             const openMobileMenu = () => { sidebar.classList.remove('-translate-x-full'); mobileMenuOverlay.classList.remove('hidden'); };
@@ -152,78 +154,89 @@
                 });
             });
 
-            if (scriptCard) scriptCard.addEventListener('click', () => scriptModal.classList.remove('hidden'));
-            if (closeScriptButton) closeScriptButton.addEventListener('click', () => scriptModal.classList.add('hidden'));
+            scriptItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    scriptModal.querySelector('#modal-title').innerText = item.querySelector('.script-title').innerText;
+                    scriptModal.querySelector('#modal-desc').innerText = item.querySelector('.script-desc').innerText;
+                    scriptModal.querySelector('#modal-script-text').innerText = item.getAttribute('data-script-code');
+                    scriptModal.classList.remove('hidden');
+                });
+            });
+            
+            executorItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    executorModal.querySelector('#executor-modal-title').innerText = item.dataset.title;
+                    executorModal.querySelector('#executor-modal-desc').innerText = item.dataset.desc;
+                    const linkElement = executorModal.querySelector('#executor-modal-link');
+                    linkElement.href = item.dataset.link;
+                    linkElement.innerText = item.dataset.link;
+                    executorModal.classList.remove('hidden');
+                });
+            });
 
-            if (copyButton && scriptText) {
+            closeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    scriptModal.classList.add('hidden');
+                    executorModal.classList.add('hidden');
+                });
+            });
+
+            if (copyButton) {
                 copyButton.addEventListener('click', function() {
-                    const tempTextArea = document.createElement('textarea');
-                    tempTextArea.value = scriptText;
-                    document.body.appendChild(tempTextArea);
-                    tempTextArea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(tempTextArea);
-                    const originalText = this.innerText;
-                    this.innerText = 'COPIADO!'; this.disabled = true;
-                    this.classList.replace('bg-green-500', 'bg-gray-500');
-                    this.classList.replace('hover:bg-green-600', 'cursor-not-allowed');
-                    setTimeout(() => {
-                        this.innerText = originalText; this.disabled = false;
-                        this.classList.replace('bg-gray-500', 'bg-green-500');
-                        this.classList.replace('cursor-not-allowed', 'hover:bg-green-600');
-                    }, 2000);
+                    const codeToCopy = scriptModal.querySelector('#modal-script-text').innerText;
+                    navigator.clipboard.writeText(codeToCopy).then(() => {
+                        const originalText = this.innerText;
+                        this.innerText = 'COPIADO!'; this.disabled = true;
+                        this.classList.replace('bg-green-500', 'bg-gray-500');
+                        this.classList.replace('hover:bg-green-600', 'cursor-not-allowed');
+                        setTimeout(() => {
+                            this.innerText = originalText; this.disabled = false;
+                            this.classList.replace('bg-gray-500', 'bg-green-500');
+                            this.classList.replace('cursor-not-allowed', 'hover:bg-green-600');
+                        }, 2000);
+                    });
                 });
             }
+
+            function filterItems(input, items, titleClass, descClass) {
+                const searchTerm = input.value.toLowerCase();
+                items.forEach(item => {
+                    const title = item.querySelector(titleClass).innerText.toLowerCase();
+                    const desc = item.querySelector(descClass).innerText.toLowerCase();
+                    item.style.display = (title.includes(searchTerm) || desc.includes(searchTerm)) ? 'block' : 'none';
+                });
+            }
+
+            if(scriptSearchButton) scriptSearchButton.addEventListener('click', () => filterItems(scriptSearchInput, scriptItems, '.script-title', '.script-desc'));
+            if(scriptSearchInput) scriptSearchInput.addEventListener('keyup', () => filterItems(scriptSearchInput, scriptItems, '.script-title', '.script-desc'));
+            
+            if(executorSearchButton) executorSearchButton.addEventListener('click', () => filterItems(executorSearchInput, executorItems, '.executor-title', '.executor-desc'));
+            if(executorSearchInput) executorSearchInput.addEventListener('keyup', () => filterItems(executorSearchInput, executorItems, '.executor-title', '.executor-desc'));
 
             const canvas = document.getElementById('flappy-canvas');
             if (canvas) {
                 const ctx = canvas.getContext('2d');
                 class FlappyBirdGame {
                     constructor(canvas, ctx) {
-                        this.canvas = canvas;
-                        this.ctx = ctx;
-                        this.fontName = "'Press Start 2P'";
+                        this.canvas = canvas; 
+                        this.ctx = ctx; 
+                        this.fontName = "'Press Start 2P'"; 
                         this.isInitialized = false;
-                        
+                        this.animationFrameId = null;
                         this.addInputListeners();
-                        window.addEventListener('resize', () => {
-                            if (this.isInitialized) this.init();
-                        });
+                        window.addEventListener('resize', () => { if (this.isInitialized) this.init(); });
                     }
-                    init() {
-                        this.stop();
-                        this.resizeCanvas();
-                        this.reset();
-                        this.isInitialized = true;
-                        this.start();
-                    }
-                    resizeCanvas() {
-                        const parent = this.canvas.parentElement;
-                        if (parent.clientWidth > 0) {
-                            this.canvas.width = parent.clientWidth;
-                            this.canvas.height = parent.clientWidth * (9 / 16);
-                        }
-                    }
+                    init() { this.stop(); this.resizeCanvas(); this.reset(); this.isInitialized = true; this.start(); }
+                    resizeCanvas() { const parent = this.canvas.parentElement; if (parent.clientWidth > 0) { this.canvas.width = parent.clientWidth; this.canvas.height = parent.clientWidth * (9 / 16); } }
                     reset() {
                         this.state = 'start';
-                        this.bird = {
-                            x: this.canvas.width / 3,
-                            y: this.canvas.height / 2,
-                            radius: this.canvas.height / 30,
-                            velocity: 0,
-                            gravity: this.canvas.height / 1800,
-                            jump: -this.canvas.height / 90
-                        };
-                        this.pipes = [];
-                        this.pipeConfig = { width: this.canvas.width / 8, gap: this.bird.radius * 7, spawnRate: 120, speed: this.canvas.width / 200 };
-                        this.score = 0;
-                        this.highScore = localStorage.getItem('flappyRataoHighScore') || 0;
-                        this.frameCount = 0;
+                        this.bird = { x: this.canvas.width / 3, y: this.canvas.height / 2, radius: this.canvas.height / 30, velocity: 0, gravity: this.canvas.height / 1800, jump: -this.canvas.height / 90 };
+                        this.pipes = []; this.pipeConfig = { width: this.canvas.width / 8, gap: this.bird.radius * 7, spawnRate: 120, speed: this.canvas.width / 200 };
+                        this.score = 0; this.highScore = localStorage.getItem('flappyRataoHighScore') || 0; this.frameCount = 0;
                     }
                     addInputListeners() {
                         const jumpAction = (e) => {
-                            e.preventDefault();
-                            if (!this.isInitialized) return;
+                            e.preventDefault(); if (!this.isInitialized) return;
                             if (this.state === 'start') this.state = 'playing';
                             if (this.state === 'playing') this.bird.velocity = this.bird.jump;
                             if (this.state === 'gameOver') { this.init(); }
@@ -234,63 +247,26 @@
                     }
                     update() {
                         if (this.state !== 'playing') return;
-                        this.bird.velocity += this.bird.gravity;
-                        this.bird.y += this.bird.velocity;
-                        this.frameCount++;
-                        if (this.frameCount % this.pipeConfig.spawnRate === 0) {
-                            const gapY = Math.random() * (this.canvas.height - this.pipeConfig.gap * 2.5) + this.pipeConfig.gap * 1.25;
-                            this.pipes.push({ x: this.canvas.width, y: gapY, scored: false });
-                        }
-                        this.pipes.forEach(pipe => pipe.x -= this.pipeConfig.speed);
-                        this.pipes = this.pipes.filter(pipe => pipe.x + this.pipeConfig.width > 0);
-                        this.checkCollisions();
+                        this.bird.velocity += this.bird.gravity; this.bird.y += this.bird.velocity; this.frameCount++;
+                        if (this.frameCount % this.pipeConfig.spawnRate === 0) { const gapY = Math.random() * (this.canvas.height - this.pipeConfig.gap * 2.5) + this.pipeConfig.gap * 1.25; this.pipes.push({ x: this.canvas.width, y: gapY, scored: false }); }
+                        this.pipes.forEach(pipe => pipe.x -= this.pipeConfig.speed); this.pipes = this.pipes.filter(pipe => pipe.x + this.pipeConfig.width > 0); this.checkCollisions();
                     }
                     checkCollisions() {
-                        if (this.bird.y + this.bird.radius > this.canvas.height || this.bird.y - this.bird.radius < 0) {
-                            this.gameOver();
-                        }
+                        if (this.bird.y + this.bird.radius > this.canvas.height || this.bird.y - this.bird.radius < 0) { this.gameOver(); }
                         this.pipes.forEach(pipe => {
-                            const birdLeft = this.bird.x - this.bird.radius;
-                            const birdRight = this.bird.x + this.bird.radius;
-                            const birdTop = this.bird.y - this.bird.radius;
-                            const birdBottom = this.bird.y + this.bird.radius;
-                            const pipeLeft = pipe.x;
-                            const pipeRight = pipe.x + this.pipeConfig.width;
-                            const pipeTop = pipe.y - this.pipeConfig.gap / 2;
-                            const pipeBottom = pipe.y + this.pipeConfig.gap / 2;
-                            if (birdRight > pipeLeft && birdLeft < pipeRight && (birdTop < pipeTop || birdBottom > pipeBottom)) {
-                                this.gameOver();
-                            }
-                            if (pipe.x + this.pipeConfig.width < this.bird.x && !pipe.scored) {
-                                this.score++;
-                                pipe.scored = true;
-                            }
+                            const birdLeft = this.bird.x - this.bird.radius, birdRight = this.bird.x + this.bird.radius, birdTop = this.bird.y - this.bird.radius, birdBottom = this.bird.y + this.bird.radius;
+                            const pipeLeft = pipe.x, pipeRight = pipe.x + this.pipeConfig.width, pipeTop = pipe.y - this.pipeConfig.gap / 2, pipeBottom = pipe.y + this.pipeConfig.gap / 2;
+                            if (birdRight > pipeLeft && birdLeft < pipeRight && (birdTop < pipeTop || birdBottom > pipeBottom)) { this.gameOver(); }
+                            if (pipe.x + this.pipeConfig.width < this.bird.x && !pipe.scored) { this.score++; pipe.scored = true; }
                         });
                     }
-                    gameOver() {
-                        this.state = 'gameOver';
-                        if (this.score > this.highScore) {
-                            this.highScore = this.score;
-                            localStorage.setItem('flappyRataoHighScore', this.highScore);
-                        }
-                    }
+                    gameOver() { this.state = 'gameOver'; if (this.score > this.highScore) { this.highScore = this.score; localStorage.setItem('flappyRataoHighScore', this.highScore); } }
                     draw() {
                         this.ctx.fillStyle = '#70c5ce'; this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
                         this.ctx.fillStyle = '#73bf2e'; this.ctx.strokeStyle = '#558021'; this.ctx.lineWidth = 4;
-                        this.pipes.forEach(pipe => {
-                            const topPipeHeight = pipe.y - this.pipeConfig.gap / 2;
-                            const bottomPipeY = pipe.y + this.pipeConfig.gap / 2;
-                            this.ctx.fillRect(pipe.x, 0, this.pipeConfig.width, topPipeHeight); this.ctx.strokeRect(pipe.x, 0, this.pipeConfig.width, topPipeHeight);
-                            this.ctx.fillRect(pipe.x, bottomPipeY, this.pipeConfig.width, this.canvas.height - bottomPipeY); this.ctx.strokeRect(pipe.x, bottomPipeY, this.pipeConfig.width, this.canvas.height - bottomPipeY);
-                        });
+                        this.pipes.forEach(pipe => { const topPipeHeight = pipe.y - this.pipeConfig.gap / 2, bottomPipeY = pipe.y + this.pipeConfig.gap / 2; this.ctx.fillRect(pipe.x, 0, this.pipeConfig.width, topPipeHeight); this.ctx.strokeRect(pipe.x, 0, this.pipeConfig.width, topPipeHeight); this.ctx.fillRect(pipe.x, bottomPipeY, this.pipeConfig.width, this.canvas.height - bottomPipeY); this.ctx.strokeRect(pipe.x, bottomPipeY, this.pipeConfig.width, this.canvas.height - bottomPipeY); });
                         
-                        // Desenha o pássaro (círculo)
-                        this.ctx.fillStyle = '#f0db4f';
-                        this.ctx.beginPath();
-                        this.ctx.arc(this.bird.x, this.bird.y, this.bird.radius, 0, Math.PI * 2);
-                        this.ctx.fill();
-                        this.ctx.strokeStyle = 'black';
-                        this.ctx.stroke();
+                        this.ctx.fillStyle = '#f0db4f'; this.ctx.beginPath(); this.ctx.arc(this.bird.x, this.bird.y, this.bird.radius, 0, Math.PI * 2); this.ctx.fill(); this.ctx.strokeStyle = 'black'; this.ctx.stroke();
 
                         this.ctx.fillStyle = 'white'; this.ctx.strokeStyle = 'black'; this.ctx.lineWidth = 5; this.ctx.font = `bold ${this.canvas.width / 15}px ${this.fontName}`; this.ctx.textAlign = 'center';
                         this.ctx.strokeText(this.score, this.canvas.width / 2, this.canvas.height / 6);
@@ -300,17 +276,18 @@
                         if (this.state === 'gameOver') { this.drawText('GAME OVER', this.canvas.width / 2, this.canvas.height / 2 - 50, this.canvas.width / 18); this.drawText(`SCORE: ${this.score}`, this.canvas.width / 2, this.canvas.height / 2, this.canvas.width / 25); this.drawText(`MELHOR: ${this.highScore}`, this.canvas.width / 2, this.canvas.height / 2 + 40, this.canvas.width / 30); this.drawText('Clique para tentar de novo', this.canvas.width / 2, this.canvas.height / 2 + 80, this.canvas.width / 40); }
                     }
                     drawText(text, x, y, size) { this.ctx.font = `bold ${size}px ${this.fontName}`; this.ctx.strokeText(text, x, y); this.ctx.fillText(text, x, y); }
-                    loop() { this.update(); this.draw(); animationFrameId = requestAnimationFrame(() => this.loop()); }
-                    start() { if (!animationFrameId) this.loop(); }
-                    stop() { if (animationFrameId) { cancelAnimationFrame(animationFrameId); animationFrameId = null; } }
+                    loop() { this.update(); this.draw(); this.animationFrameId = requestAnimationFrame(() => this.loop()); }
+                    start() { if (!this.animationFrameId) this.loop(); }
+                    stop() { if (this.animationFrameId) { cancelAnimationFrame(this.animationFrameId); this.animationFrameId = null; } }
                 }
                 gameInstance = new FlappyBirdGame(canvas, ctx);
             }
 
-            const firstLink = document.querySelector('.nav-link');
+            // Define a aba "Sobre mim" como inicial
+            const firstLink = document.querySelector('.nav-link[data-target="sobre"]');
             if(firstLink){
                 firstLink.classList.add('bg-blue-800', 'text-white');
-                switchTab(firstLink.getAttribute('data-target'));
+                switchTab('sobre');
             }
         });
     </script>
